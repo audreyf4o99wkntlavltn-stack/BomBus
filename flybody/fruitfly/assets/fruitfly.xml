@@ -91,7 +91,7 @@
       </default>
       <default class="leg">
         <joint stiffness="0.01" damping="0.01"/>
-        <geom density="1.18"/>
+        <geom density="1.18" material="brown"/>
         <default class="coxa">
           <general biastype="affine" gainprm="0.8" biasprm="0 -0.8"/>
           <default class="twist_coxa_T1">
@@ -207,52 +207,54 @@
   <statistic meansize="0.02"/>
 
   <asset>
-    <material name="body" shininess="0.6" rgba="0.674 0.35 0.143 1"/>
+    <material name="body" shininess="0.6" rgba="0.85 0.65 0.15 1"/>
     <material name="red" shininess="0.692" rgba="0.8 0.0279 0.00154 1"/>
     <material name="ocelli" shininess="1" rgba="0.128 0.0488 0.0154 1"/>
-    <material name="black" shininess="0.727" rgba="0 0 0 1"/>
+    <material name="black" shininess="0.727" rgba="0.0 0.0 0.0 1"/>
     <material name="bristle-brown" shininess="0.907" rgba="0 0 0 1"/>
-    <material name="lower" shininess="0.6" rgba="0.799 0.61 0.386 1"/>
-    <material name="brown" shininess="0.6" rgba="0.202 0.0782 0.0262 1"/>
-    <material name="membrane" specular="0.62" shininess="0.907" rgba="0.539 0.686 0.8 0.4"/>
+    <material name="lower" shininess="0.6" rgba="0.92 0.75 0.25 1"/>
+    <material name="brown" shininess="0.6" rgba="0.12 0.07 0.03 1"/>
+    <material name="membrane" specular="0.6" shininess="0.9" rgba="0.96 0.9 0.6 0.35"/>
     <material name="blue" shininess="0.6" rgba="0.2 0.3 1 1"/>
-    <mesh name="head" file="head_body.obj"/>
-    <mesh name="head_red" file="head_red.obj"/>
-    <mesh name="head_ocelli" file="head_ocelli.obj"/>
-    <mesh name="head_black" file="head_black.obj"/>
+    <material name="bee_mat" shininess="0.6" rgba="0.9 0.9 0.9 0"/>
+    
+    <mesh name="head" file="bee_head.obj"/>
+    <mesh name="head_red" file="bee_head.obj"/>
+    <mesh name="head_ocelli" file="bee_head.obj"/>
+    <mesh name="head_black" file="bee_head.obj"/>
     <mesh name="haustellum" file="haustellum_body.obj"/>
     <mesh name="haustellum_black" file="haustellum_black.obj"/>
     <mesh name="rostrum" file="rostrum_body.obj"/>
     <mesh name="rostrum_bristle-brown" file="rostrum_bristle-brown.obj"/>
     <mesh name="labrum_left_lower" file="labrum_left_lower.obj"/>
-    <mesh name="wing_left_brown" file="wing_left_brown.obj"/>
-    <mesh name="wing_left_membrane" file="wing_left_membrane.obj"/>
+    <mesh name="wing_left_brown" file="bee_wing_left.obj"/>
+    <mesh name="wing_left_membrane" file="bee_wing_left.obj"/>
     <mesh name="antenna_left" file="antenna_left_body.obj"/>
     <mesh name="antenna_left_black" file="antenna_left_black.obj"/>
     <mesh name="haltere_left" file="haltere_left_body.obj"/>
     <mesh name="labrum_right_lower" file="labrum_right_lower.obj"/>
-    <mesh name="wing_right_brown" file="wing_right_brown.obj"/>
-    <mesh name="wing_right_membrane" file="wing_right_membrane.obj"/>
+    <mesh name="wing_right_brown" file="bee_wing_right.obj"/>
+    <mesh name="wing_right_membrane" file="bee_wing_right.obj"/>
     <mesh name="antenna_right" file="antenna_right_body.obj"/>
     <mesh name="antenna_right_black" file="antenna_right_black.obj"/>
     <mesh name="haltere_right" file="haltere_right_body.obj"/>
-    <mesh name="thorax" file="thorax_body.obj"/>
-    <mesh name="thorax_black" file="thorax_black.obj"/>
-    <mesh name="abdomen_1" file="abdomen_1_body.obj"/>
+    <mesh name="thorax" file="bee_thorax.obj"/>
+    <mesh name="thorax_black" file="bee_thorax.obj"/>
+    <mesh name="abdomen_1"       file="abdomen_1_body.obj"/>
     <mesh name="abdomen_1_lower" file="abdomen_1_lower.obj"/>
-    <mesh name="abdomen_2" file="abdomen_2_body.obj"/>
+    <mesh name="abdomen_2"       file="abdomen_2_body.obj"/>
     <mesh name="abdomen_2_lower" file="abdomen_2_lower.obj"/>
-    <mesh name="abdomen_3" file="abdomen_3_body.obj"/>
+    <mesh name="abdomen_3"       file="abdomen_3_body.obj"/>
     <mesh name="abdomen_3_lower" file="abdomen_3_lower.obj"/>
-    <mesh name="abdomen_4" file="abdomen_4_body.obj"/>
+    <mesh name="abdomen_4"       file="abdomen_4_body.obj"/>
     <mesh name="abdomen_4_lower" file="abdomen_4_lower.obj"/>
-    <mesh name="abdomen_5" file="abdomen_5_body.obj"/>
+    <mesh name="abdomen_5"       file="abdomen_5_body.obj"/>
     <mesh name="abdomen_5_lower" file="abdomen_5_lower.obj"/>
-    <mesh name="abdomen_6" file="abdomen_6_body.obj"/>
+    <mesh name="abdomen_6"       file="abdomen_6_body.obj"/>
     <mesh name="abdomen_6_lower" file="abdomen_6_lower.obj"/>
-    <mesh name="abdomen_7" file="abdomen_7_body.obj"/>
+    <mesh name="abdomen_7"       file="abdomen_7_body.obj"/>
     <mesh name="abdomen_7_lower" file="abdomen_7_lower.obj"/>
-    <mesh name="abdomen_8" file="abdomen_8_body.obj"/>
+    <mesh name="abdomen_8"       file="abdomen_8_body.obj"/>
     <mesh name="tibia_T1_left" file="tibia_T1_left_body.obj"/>
     <mesh name="tarsus_T1_1_left" file="tarsus_T1_1_left_body.obj"/>
     <mesh name="tarsus_T1_2_left" file="tarsus_T1_2_left_body.obj"/>
@@ -364,17 +366,17 @@
           <joint name="antenna_abduct_left" class="antenna_abduct"/>
           <joint name="antenna_twist_left" class="antenna_twist"/>
           <joint name="antenna_left" class="antenna_extend"/>
-          <geom name="antenna_left" pos="0.0148 0.116 -0.112" quat="0.364 0.49 0.474 -0.635" mesh="antenna_left"/>
+          <geom name="antenna_left" pos="0.0148 0.116 -0.112" quat="0.364 0.49 0.474 -0.635" mesh="antenna_left" rgba="1 1 1 0"/>
           <geom name="antenna_left_collision" class="collision" type="capsule" size="0.00481 0.00875" pos="0 0.0114 0.00263" quat="0.634 -0.773 0 0"/>
-          <geom name="antenna_left_black" material="black" mass="0" pos="0.0148 0.116 -0.112" quat="0.364 0.49 0.474 -0.635" mesh="antenna_left_black"/>
+          <geom name="antenna_left_black" material="bee_mat" mass="0" pos="0.0148 0.116 -0.112" quat="0.364 0.49 0.474 -0.635" mesh="antenna_left_black" rgba="1 1 1 0"/>
         </body>
         <body name="antenna_right" pos="0.00861 0.038 0.0129" quat="0.59 0.785 -0.192 -0.0128">
           <joint name="antenna_abduct_right" class="antenna_abduct"/>
           <joint name="antenna_twist_right" class="antenna_twist"/>
           <joint name="antenna_right" class="antenna_extend"/>
-          <geom name="antenna_right" pos="-0.0153 -0.116 0.112" quat="-0.474 0.635 0.364 0.49" mesh="antenna_right"/>
+          <geom name="antenna_right" pos="-0.0153 -0.116 0.112" quat="-0.474 0.635 0.364 0.49" mesh="antenna_right" rgba="1 1 1 0" />
           <geom name="antenna_right_collision" class="collision" type="capsule" size="0.00481 0.00875" pos="-0.000616 -0.0114 -0.00231" quat="0.782 0.623 -0.0258 -0.0164"/>
-          <geom name="antenna_right_black" material="black" mass="0" pos="-0.0153 -0.116 0.112" quat="-0.474 0.635 0.364 0.49" mesh="antenna_right_black"/>
+          <geom name="antenna_right_black" material="bee_mat" mass="0" pos="-0.0153 -0.116 0.112" quat="-0.474 0.635 0.364 0.49" mesh="antenna_right_black" rgba="1 1 1 0" />
         </body>
       </body>
       <body name="wing_left" childclass="wing" pos="-0.00694 0.0432 0.0091" quat="0 -0.403 0 -0.915">
@@ -402,46 +404,46 @@
       <body name="abdomen" childclass="abdomen" pos="-0.0447 -0.000555 0.00428" quat="-0.704 -0.0859 -0.0853 -0.7">
         <joint name="abdomen_abduct" class="abduct_abdomen"/>
         <joint name="abdomen" class="extend_abdomen"/>
-        <geom name="abdomen" pos="0.000758 -0.0663 -0.115" quat="0.7 -0.0853 0.0859 0.704" mesh="abdomen_1"/>
-        <geom name="abdomen_lower" material="lower" pos="0.000758 -0.0663 -0.115" quat="0.7 -0.0853 0.0859 0.704" mesh="abdomen_1_lower"/>
+        <geom name="abdomen" material="body" pos="0.000758 -0.0663 -0.115" quat="0.7 -0.0853 0.0859 0.704" mesh="abdomen_1"/>
+        <geom name="abdomen_lower" material="body" pos="0.000758 -0.0663 -0.115" quat="0.7 -0.0853 0.0859 0.704" mesh="abdomen_1_lower"/>
         <geom name="abdomen_collision" class="collision" type="cylinder" size="0.0281 0.0102 0" pos="-0.000187 0.00646 -0.0146" quat="0.0104 -0.0205 0.824 0.566"/>
         <body name="abdomen_2" pos="0 0.0119 0" quat="0.981 -0.192 -0.000269 0.00144">
           <joint name="abdomen_abduct_2" class="abduct_abdomen"/>
           <joint name="abdomen_2" class="extend_abdomen"/>
-          <geom name="abdomen_2" pos="0.000532 -0.0293 -0.136" quat="0.704 0.0507 -0.0503 0.706" mesh="abdomen_2"/>
-          <geom name="abdomen_2_lower" material="lower" pos="0.000532 -0.0293 -0.136" quat="0.704 0.0507 -0.0503 0.706" mesh="abdomen_2_lower"/>
+          <geom name="abdomen_2" material="brown" pos="0.000532 -0.0293 -0.136" quat="0.704 0.0507 -0.0503 0.706" mesh="abdomen_2"/>
+          <geom name="abdomen_2_lower" material="brown" pos="0.000532 -0.0293 -0.136" quat="0.704 0.0507 -0.0503 0.706" mesh="abdomen_2_lower"/>
           <geom name="abdomen_2_collision" class="collision" type="cylinder" size="0.0367 0.0142 0" pos="-0.000182 0.0166 -0.0177" quat="-0.0111 0.0103 0.695 0.719"/>
           <body name="abdomen_3" pos="0 0.0212 0" quat="0.996 -0.0909 6.69e-05 0.000525">
             <joint name="abdomen_abduct_3" class="abduct_abdomen"/>
             <joint name="abdomen_3" class="extend_abdomen"/>
-            <geom name="abdomen_3" pos="0.000511 -0.0251 -0.143" quat="0.697 0.114 -0.114 0.699" mesh="abdomen_3"/>
-            <geom name="abdomen_3_lower" material="lower" pos="0.000511 -0.0251 -0.143" quat="0.697 0.114 -0.114 0.699" mesh="abdomen_3_lower"/>
+            <geom name="abdomen_3" material="body" pos="0.000511 -0.0251 -0.143" quat="0.697 0.114 -0.114 0.699" mesh="abdomen_3"/>
+            <geom name="abdomen_3_lower" material="body" pos="0.000511 -0.0251 -0.143" quat="0.697 0.114 -0.114 0.699" mesh="abdomen_3_lower"/>
             <geom name="abdomen_3_collision" class="collision" type="cylinder" size="0.0389 0.0194 0" pos="3.29e-05 0.0198 -0.0174" quat="0.71 -0.591 0.239 0.3"/>
             <body name="abdomen_4" pos="0 0.0313 0" quat="0.999 -0.0332 0.000147 -0.000229">
               <joint name="abdomen_abduct_4" class="abduct_abdomen"/>
               <joint name="abdomen_4" class="extend_abdomen"/>
-              <geom name="abdomen_4" pos="0.000577 -0.0468 -0.146" quat="0.693 0.137 -0.138 0.695" mesh="abdomen_4"/>
-              <geom name="abdomen_4_lower" material="lower" pos="0.000577 -0.0468 -0.146" quat="0.693 0.137 -0.138 0.695" mesh="abdomen_4_lower"/>
+              <geom name="abdomen_4" material="brown" pos="0.000577 -0.0468 -0.146" quat="0.693 0.137 -0.138 0.695" mesh="abdomen_4"/>
+              <geom name="abdomen_4_lower" material="brown" pos="0.000577 -0.0468 -0.146" quat="0.693 0.137 -0.138 0.695" mesh="abdomen_4_lower"/>
               <geom name="abdomen_4_collision" class="collision" type="cylinder" size="0.0396 0.0176 0" pos="9.67e-05 0.015 -0.0192" quat="0.0186 -0.0235 0.637 0.77"/>
               <body name="abdomen_5" pos="0 0.0262 0" quat="0.999 -0.0368 -4.72e-05 -0.000327">
                 <joint name="abdomen_abduct_5" class="abduct_abdomen"/>
                 <joint name="abdomen_5" class="extend_abdomen"/>
-                <geom name="abdomen_5" pos="0.000607 -0.062 -0.151" quat="0.687 0.163 -0.163 0.689" mesh="abdomen_5"/>
-                <geom name="abdomen_5_lower" material="lower" pos="0.000607 -0.062 -0.151" quat="0.687 0.163 -0.163 0.689" mesh="abdomen_5_lower"/>
+                <geom name="abdomen_5"  material="body" pos="0.000607 -0.062 -0.151" quat="0.687 0.163 -0.163 0.689" mesh="abdomen_5"/>
+                <geom name="abdomen_5_lower" material="body" pos="0.000607 -0.062 -0.151" quat="0.687 0.163 -0.163 0.689" mesh="abdomen_5_lower"/>
                 <geom name="abdomen_5_collision" class="collision" type="cylinder" size="0.0371 0.016 0" pos="0.000282 0.0105 -0.0187" quat="0.0262 -0.0206 0.624 0.781"/>
                 <body name="abdomen_6" pos="0 0.0213 0" quat="0.998 -0.0662 0.000156 -0.000351">
                   <joint name="abdomen_abduct_6" class="abduct_abdomen"/>
                   <joint name="abdomen_6" class="extend_abdomen"/>
-                  <geom name="abdomen_6" pos="0.000707 -0.0626 -0.161" quat="0.674 0.208 -0.208 0.677" mesh="abdomen_6"/>
-                  <geom name="abdomen_6_lower" material="lower" pos="0.000707 -0.0626 -0.161" quat="0.674 0.208 -0.208 0.677" mesh="abdomen_6_lower"/>
+                  <geom name="abdomen_6" material="brown" pos="0.000707 -0.0626 -0.161" quat="0.674 0.208 -0.208 0.677" mesh="abdomen_6"/>
+                  <geom name="abdomen_6_lower" material="brown" pos="0.000707 -0.0626 -0.161" quat="0.674 0.208 -0.208 0.677" mesh="abdomen_6_lower"/>
                   <geom name="abdomen_6_collision" class="collision" type="cylinder" size="0.0334 0.0141 0" pos="-0.000157 0.00942 -0.017" quat="-0.00292 0.00201 0.592 0.806"/>
                   <body name="abdomen_7" pos="0 0.0182 0" quat="0.995 -0.102 -1.79e-06 -0.000187">
                     <joint name="abdomen_abduct_7" class="abduct_abdomen"/>
                     <joint name="abdomen_7" class="extend_abdomen"/>
                     <geom name="abdomen_8" pos="0.000731 -0.0464 -0.174" quat="0.649 0.276 -0.276 0.653" mesh="abdomen_8"/>
-                    <geom name="abdomen_7" pos="0.000731 -0.0464 -0.174" quat="0.649 0.276 -0.276 0.653" mesh="abdomen_7"/>
+                    <geom name="abdomen_7" material="body" pos="0.000731 -0.0464 -0.174" quat="0.649 0.276 -0.276 0.653" mesh="abdomen_7"/>
                     <geom name="abdomen_7_collision" class="collision" type="sphere" size="0.0262" pos="-3.83e-05 0.0134 -0.0108"/>
-                    <geom name="abdomen_7_lower" material="lower" pos="0.000731 -0.0464 -0.174" quat="0.649 0.276 -0.276 0.653" mesh="abdomen_7_lower"/>
+                    <geom name="abdomen_7_lower" material="body" pos="0.000731 -0.0464 -0.174" quat="0.649 0.276 -0.276 0.653" mesh="abdomen_7_lower"/>
                   </body>
                 </body>
               </body>
