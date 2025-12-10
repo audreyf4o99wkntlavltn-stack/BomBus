@@ -298,3 +298,36 @@ def template_task(random_state: np.random.RandomState | None = None,
                                 task=task,
                                 random_state=random_state,
                                 strip_singleton_obs_buffer_dim=True)
+def flight_in_box_task(random_state: np.random.RandomState | None = None,
+                       force_actuators: bool = False,
+                       disable_legs: bool = True,
+                       joint_filter: float = 0.,
+                       time_limit: float = 5.0):
+    """
+    一个将果蝇放入木箱环境（fly_env.xml）的强化学习任务。
+    """
+    # 1. 实例化果蝇（Walker）和自定义环境（Arena）
+    walker = fruitfly.FruitFly()
+    arena = FlightBoxArena()  # 使用您自定义的 Arena 类
+    
+    # 2. 将果蝇放置在环境中（设置初始位置，例如在大箱子中心）
+    # 这里的 (0, 0, 0.1) 是 MuJoCo 惯例，将 walker 抬高以避免初始穿模
+
+    arena.spawn_controllable(walker,
+                             pos=(0., 0., 0.1),
+                             euler=(0., 0., 0.))
+
+    # 3. 定义任务：使用一个简单的模板任务（例如：保持飞行或移动到目标）
+    # 您可以替换为 fly_envs.py 中定义的任何自定义任务类（如 FlightImitationWBPG）
+    task = TemplateTask(walker=walker,
+                        arena=arena,
+                        force_actuators=force_actuators,
+                        disable_legs=disable_legs,
+                        joint_filter=joint_filter,
+                        time_limit=time_limit)
+
+    # 4. 创建最终环境
+    return composer.Environment(time_limit=time_limit,
+                                task=task,
+                                random_state=random_state,
+                                strip_singleton_obs_buffer_dim=True)
