@@ -5,25 +5,40 @@
         <mesh name="bottle_mesh" file="bottle_link.STL"/>
         <mesh name="plate_mesh" file="plate_Link.STL"/>
         <mesh name="lego_mesh" file="lego_Link.STL"/>
-        
+
         <material name="mat_bottle" rgba="0.8 0.8 1 0.5"/>
         <material name="mat_plate" rgba="1 1 1 1"/>
-        <material name="mat_lego" rgba="1 0 0 1"/>
+        <material name="mat_lego" rgba="0 0 1 1"/>
+
+        <!-- 花蜜材质（淡黄色、透明度 0.6） -->
+        <material name="mat_nectar" rgba="1 1 0.6 0.6"/>
     </asset>
 
     <worldbody>
+
+        <!-- 底部瓶 body -->
         <body name="flower_base" pos="0 0 0">
             <geom type="mesh" mesh="bottle_mesh" material="mat_bottle"/>
-            
-            <body name="flower_plate" pos="0 0 0.079" euler="0 0 0">
+
+            <!-- 托盘 -->
+            <body name="flower_plate" pos="0 0 0.079">
                 <geom type="mesh" mesh="plate_mesh" material="mat_plate"/>
-                
-                <body name="flower_lego" pos="0 0 0" euler="0 0 0">
+
+                <!-- 积木 -->
+                <body name="flower_lego" pos="0 0 0">
                     <geom type="mesh" mesh="lego_mesh" material="mat_lego"/>
-                    
-                    <site name="nectar" pos="0 0 0.01" size="0.005" rgba="1 1 0 1"/>
+
+                    <!-- 花蜜碰撞区（有颜色、轻透明） -->
+                    <geom name="nectar_collision"
+                          type="sphere"
+                          pos="0 0 0.01"
+                          size="0.005"
+                          material="mat_nectar"
+                          contype="1"
+                          conaffinity="1"/>
                 </body>
             </body>
         </body>
+
     </worldbody>
 </mujoco>
