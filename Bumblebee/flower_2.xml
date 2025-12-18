@@ -1,0 +1,36 @@
+<mujoco model="flower_deformed_final">
+    <compiler angle="radian" meshdir="meshes"/>
+
+    <asset>
+        <mesh name="base_link_mesh" file="base_link.STL"/>
+        <mesh name="empty_link_mesh" file="Empty_Link.STL"/>
+        <mesh name="empty_link2_mesh" file="Empty_Link2.STL"/>
+
+        <material name="mat_base" rgba="0.8 0.8 1 0.5"/>
+        <material name="mat_empty" rgba="1 1 1 1"/>
+        <material name="mat_empty2" rgba="0 0 1 1"/>
+        <material name="mat_nectar" rgba="1 1 0.6 0.6"/>
+    </asset>
+
+    <worldbody>
+        <body name="flower_base" pos="0 0 0">
+            <geom type="mesh" mesh="base_link_mesh" material="mat_base"/>
+
+            <body name="flower_plate" pos="0 0 0.079">
+                <joint name="AA_joint" type="hinge" axis="0 1 0"/>
+                <geom type="mesh" mesh="empty_link_mesh" material="mat_empty"/>
+
+                <body name="flower_lego" pos="0 0 0">
+                    <joint name="BB_joint" type="hinge" axis="0 0 1"/>
+                    <geom type="mesh" mesh="empty_link2_mesh" material="mat_empty2"/>
+                    
+                    <site name="nectar_target" 
+                          type="cylinder" 
+                          pos="0 0 0.01" 
+                          size="0.005 0.0035" 
+                          material="mat_nectar"/>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>
